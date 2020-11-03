@@ -1,8 +1,8 @@
-from django.urls import path, include
-from . import views
+from django.urls import path
+from .views import Url_table_View
 
 urlpatterns = [
-    path('', views.urls),
-    path('<int:url_id>', views.urls_id)
+    path('', Url_table_View.as_view({'get': 'list'})),
+    path('<int:pk>', Url_table_View.as_view({'get': 'retrieve'}))
 
 ]
